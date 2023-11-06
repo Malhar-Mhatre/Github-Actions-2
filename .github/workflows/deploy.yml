@@ -8,7 +8,7 @@ env:
   MONGODB_DB_NAME: github-actions-demo
 jobs:
   test:
-    environment: testing
+    environment: test
     runs-on: ubuntu-latest
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.omzirmg.mongodb.net
