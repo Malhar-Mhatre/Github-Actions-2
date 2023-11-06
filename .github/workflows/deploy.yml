@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.omzirmg.mongodb.net
-      MONGODB_USERNAME: mongo_user
-      MONGODB_PASSWORD: XqudeOLgCzutKsnuf01
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     steps:
       - name: Get Code
