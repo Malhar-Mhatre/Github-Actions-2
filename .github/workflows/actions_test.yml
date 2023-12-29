@@ -1,6 +1,6 @@
 name: Core Deployment 
 on:
-  workflow_dispatch
+  workflow_dispatch:
 
 # These permissions are needed to interact with GitHub's OIDC Token endpoint.
 permissions:
