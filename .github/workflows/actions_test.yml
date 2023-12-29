@@ -1,0 +1,24 @@
+name: Core Deployment 
+on:
+  workflow_dispatch
+
+# These permissions are needed to interact with GitHub's OIDC Token endpoint.
+permissions:
+  id-token: write
+  contents: read
+  packages: read
+
+jobs:
+  core_deploy:
+    runs-on: ubuntu-latest
+    env:
+      REGION: $(echo "${{ vars.region }}" | sed 's/-/_/g')
+    steps:
+      - name: Checkout current GitHub Actions workflow repository
+        uses: actions/checkout@v4
+
+      - name: DBT seeds and create procedures
+        run: |
+          echo ${{ vars.region }}
+          echo desired_state_$(echo "${{ vars.region }}" | sed 's/-/_/g')
+          echo $REGION
