@@ -14,6 +14,8 @@ permissions:
 jobs:
   core_deploy:
     runs-on: ubuntu-latest
+    env: 
+        REGION: $(echo "${{ vars.region }}" | sed 's/-/_/g')
     steps:
       - name: Checkout current GitHub Actions workflow repository
         uses: actions/checkout@v4
@@ -22,5 +24,4 @@ jobs:
         run: |
           echo ${{ vars.region }}
           echo desired_state_$(echo "${{ vars.region }}" | sed 's/-/_/g')
-          export REGION=$(echo "${{ vars.region }}" | sed 's/-/_/g')
           echo $REGION
